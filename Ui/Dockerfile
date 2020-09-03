@@ -35,7 +35,7 @@ RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy existing application directory contents
-COPY .Ui /app/Ui
+COPY . /app/Ui
 
 # Copy existing application directory permissions
 COPY --chown=www:www . /app
