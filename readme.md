@@ -1,9 +1,16 @@
+🎉 Alexandru's PHP/JS skills demo
+
+![](ui-preview.gif)
+
+
 ### Arhitecture
 Considering Subscribers information have multiple sources, a ```source``` column was added.
 
 A basic implementation for key-set paging is used, instead of offset - limit as my asumption was that there may be millions of records.
 
-This is complemented by infinite scroll in Ui with basic filters.
+This is complemented by infinite scroll in Ui - with virtualized items from ag-grid and basic filters (server side). State editing can be done stright from the listing, while adding fields can be achieved from the Edit page.
+
+Fields can have a default value, based on their type, and the Ui will present the appropiate control. Form validation is done via Html5 capabilities in the Ui, and then again in the Api.
 
 All endpoints repond in Json format, and try fo follow a REST-full implementation.
 
@@ -141,8 +148,11 @@ This will create 10 random fields and 1000 subscribers. No connections between t
 - More tests are needed
 - Implement in full the key-set paging for subscribers
 - Add Interfaces to all entities used
+- Currently, Model entities are not created via DI
 
 - in Ui > Subscribers List, after scrolling more than 500 items, when scrolling back up, the items pulled are not in correct order - due to only including the last id as cursor.
+
+Although not all was covered, I have tried to show examples of as many items as I could, considering the time constraint and the MVP status of the project.
 
 
 
