@@ -1,0 +1,41 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "Ui demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "Alexandru Florea",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "ag-grid-community": "^23.2.1",
+    "ag-grid-vue": "^23.2.1",
+    "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "cross-env": "^7.0.2",
+    "startbootstrap-sb-admin-2": "^4.1.1",
+    "sweetalert2": "^9.17.1",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.5",
+    "vue-property-decorator": "^9.0.0",
+    "vue-router": "^3.4.3",
+    "vue-select": "^3.10.8"
+  },
+  "devDependencies": {
+    "laravel-mix": "^5.0.5",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.12"
+  }
+}

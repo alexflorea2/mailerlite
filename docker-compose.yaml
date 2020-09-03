@@ -1,0 +1,53 @@
+version: "3.6"
+
+services:
+
+    #MySQL Service
+    db:
+        build: ./mysql
+        container_name: db
+        command: mysqld  --default-authentication-plugin=mysql_native_password
+        restart: always
+        tty: true
+        ports:
+          - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: baubau12
+            MYSQL_DATABASE: mailerlite
+            MYSQL_USER: dev
+            MYSQL_PASSWORD: baubau12
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+          - dbdata:/var/lib/mysql/
+        networks:
+          - app-network
+
+    app:
+        container_name: alex_florea
+        build: .
+        command: >
+          sh -c "cd /app && php -S 0.0.0.0:8080 -t public"
+        ports:
+          - "49170:8080"
+        networks:
+          - app-network
+
+    ui:
+        container_name: ui
+        build: ./Ui
+        command: >
+            sh -c "cd /app && php -S 0.0.0.0:8080 -t Ui"
+        ports:
+            - "9002:8080"
+        networks:
+            - app-network
+
+#Docker Networks
+networks:
+    app-network:
+        driver: bridge
+#Volumes
+volumes:
+    dbdata:
+        driver: local
